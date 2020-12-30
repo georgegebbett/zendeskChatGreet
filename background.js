@@ -26,8 +26,8 @@ chrome.commands.onCommand.addListener(function(command) {
     	} else if (/^\w+\s\w+$/.test(promptName)) {
     		promptName = /^(\w+)\s\w+$/.exec(promptName)[1];
     	}
-        promptName = greeting.concat(" ", promptName.substring(0,1).toUpperCase(), promptName.substring(1))
-        chrome.tabs.executeScript(tabs[0].id, {code:"document.getElementsByClassName(\"meshim_dashboard_components_chatPanel_ChatTextAreaList chat_input valid\")[0].value = \"".concat(promptName).concat("\"")})
+		var fullGreet = greeting.concat(" ", promptName.substring(0, 1).toUpperCase(), promptName.substring(1));
+		chrome.tabs.executeScript(tabs[0].id, {code:"document.getElementsByClassName(\"meshim_dashboard_components_chatPanel_ChatTextAreaList chat_input valid\")[0].value = \"".concat(fullGreet).concat("\"")})
     })
   });
 });

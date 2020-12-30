@@ -1,8 +1,18 @@
 function save_options() {
-    var greeting = document.getElementById("greeting").value;
-    chrome.storage.sync.set({greeting: greeting}, function (){
-        console.log("Greeting updated");
-    })
+    if (document.getElementById("greeting").value.includes("[name]")){
+        var greeting;
+        greeting = document.getElementById("greeting").value;
+        chrome.storage.sync.set({greeting: greeting}, function (){
+            console.log("Greeting updated");
+            document.getElementById("successMsg").hidden = false;
+            document.getElementById("errorMsg").hidden = true;
+        })
+    } else {
+        document.getElementById("errorMsg").hidden = false;
+        document.getElementById("successMsg").hidden = true;
+        console.log("No.")
+    }
+
 }
 
 function restore_options() {
