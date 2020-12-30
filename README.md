@@ -12,11 +12,11 @@ The extension uses regex matching to find the customer's name in a way that work
 
 The matching rules are:
 
-If the full customer name is just a name (e.g. John Smith), [name] will be replaced with "John"
+* If the full customer name is just a name (e.g. John Smith), [name] will be replaced with "John"
 
-If the customer name has brackets in it (e.g. Acme Ltd (John)), [name] will be replaced with "John"
+* If the customer name has brackets in it (e.g. Acme Ltd (John)), [name] will be replaced with "John"
 
-If the customer name starts with 'Visitor', [name] will be replaced with "" (i.e. only the beginning of the greeting will be returned)
+* If the customer name starts with 'Visitor', [name] will be replaced with "" (i.e. only the beginning of the greeting will be returned)
 
 The extension is triggered with Alt-Shift-Y on PC and Ctrl-Shift-Y on Mac.
 
