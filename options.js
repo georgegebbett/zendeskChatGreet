@@ -1,33 +1,45 @@
+var greeting;
+
 function save_options() {
-    if (document.getElementById("greeting").value.includes("[name]")){
-        var greeting;
-        greeting = document.getElementById("greeting").value;
+    if (document.getElementById("greetingBox").value.includes("[name]")){
+        greeting = document.getElementById("greetingBox").value;
         chrome.storage.sync.set({greeting: greeting}, function (){
             console.log("Greeting updated");
+            document.getElementById("successMsg").innerText = "Greeting updated to \"".concat(greeting, "\" successfully. You can now close this window.")
             document.getElementById("successMsg").hidden = false;
             document.getElementById("errorMsg").hidden = true;
-            document.getElementById("deleteMsg").hidden = true;
-
         })
     } else {
         document.getElementById("errorMsg").hidden = false;
         document.getElementById("successMsg").hidden = true;
-        document.getElementById("deleteMsg").hidden = true;
 
-        console.log("No.")
+        console.log("Greeting update failed.")
     }
 
+    document.getElementById("retrieveMsg").hidden = true;
+    document.getElementById("deleteMsg").hidden = true;
 }
 
 function restore_options() {
     chrome.storage.sync.get({greeting: "Hi there [name]"}, function (items){
-        document.getElementById("greeting").value = items.greeting;
+        document.getElementById("greetingBox").value = items.greeting;
+        document.getElementById("successMsg").hidden = true;
+        document.getElementById("errorMsg").hidden = true;
+        document.getElementById("deleteMsg").hidden = true;
+        if (document.getElementById("devOp").checked) {
+            document.getElementById("retrieveMsg").hidden = false;
+        }
+
     })
 }
 
 function delete_options() {
     chrome.storage.sync.clear(function (){
         document.getElementById("deleteMsg").hidden = false;
+        document.getElementById("successMsg").hidden = true;
+        document.getElementById("errorMsg").hidden = true;
+        document.getElementById("retrieveMsg").hidden = true;
+        document.getElementById("greetingBox").value = "";
     })
 }
 
