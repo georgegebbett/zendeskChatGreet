@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zendesk Chat Greet Options</title>
+    <link rel="stylesheet" href="optionsStyle.css">
+    <h1>Zendesk Chat Greeter</h1>
+</head>
+<body>
+<p>
+    <label for="greetingBox">Greeting: </label><input type="text" id="greetingBox">
+    <button id="save">Save</button>
+</p>
+<p>Use [name] as placeholder for customer name</p>
+<p style="color: red" id="errorMsg" hidden>You must include [name]. Greeting not updated.</p>
+<p style="color: green" id="successMsg" hidden>Greeting updated, you can now close this window</p>
+<p style="color: green" id="retrieveMsg" hidden>Greeting retrieved from Chrome Sync</p>
+<p style="color: red" id="deleteMsg" hidden>Saved greeting removed from Chrome Sync</p>
+<br>
+
+<label for="devOp">Show advanced options:</label><input type="checkbox" id="devOp">
+<br>
+<p id="warningMsg" hidden>These options may break your implementation, proceed at your own risk!</p>
+<button id="remove" hidden>Delete Greeting from Sync</button>
+<button id="retrieve" hidden>Retrieve Greeting from Sync</button>
+
+<script src="options.js"></script>
+</body>
+</html>

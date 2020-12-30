@@ -1,10 +1,11 @@
 {
   "name": "Zendesk Chat Greeter",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Greet your chat customers!",
   "permissions": [
     "http://*.zendesk.com/chat/*",
-    "https://*.zendesk.com/chat/*"
+    "https://*.zendesk.com/chat/*",
+    "storage"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -27,5 +28,17 @@
     "description": "Greet customer"
     }
   },
-	"manifest_version": 2
+  "manifest_version": 2,
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "icons": {
+    "16": "icons/hi16.png",
+    "48": "icons/hi48.png",
+    "128": "icons/hi128.png"
+  },
+  "browser_action": {
+    "default_popup": "options.html"
+  }
 }
