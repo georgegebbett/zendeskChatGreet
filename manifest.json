@@ -37,5 +37,8 @@
     "16": "icons/hi16.png",
     "48": "icons/hi48.png",
     "128": "icons/hi128.png"
+  },
+  "browser_action": {
+    "default_popup": "options.html"
   }
 }

@@ -6,7 +6,7 @@ var promptName;
 var greeting;
 
 function setGreeting(){
-	chrome.storage.sync.get({greeting}, function(items){
+	chrome.storage.sync.get({greeting: "Hi there [name]"}, function(items){
 		greeting = items.greeting;
 	});
 }

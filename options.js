@@ -35,9 +35,11 @@ function hideShowOptions() {
     if (document.getElementById("devOp").checked === true){
         document.getElementById("remove").hidden = false;
         document.getElementById("retrieve").hidden = false;
+        document.getElementById("warningMsg").hidden = false;
     } else {
         document.getElementById("remove").hidden = true;
         document.getElementById("retrieve").hidden = true;
+        document.getElementById("warningMsg").hidden = true;
     }
 }
 
