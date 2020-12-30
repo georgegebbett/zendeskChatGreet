@@ -1,6 +1,6 @@
 {
   "name": "Zendesk Chat Greeter",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Greet your chat customers!",
   "permissions": [
     "http://*.zendesk.com/chat/*",
