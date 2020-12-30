@@ -32,5 +32,10 @@
   "options_ui": {
     "page": "options.html",
     "open_in_tab": false
+  },
+  "icons": {
+    "16": "icons/hi16.png",
+    "48": "icons/hi48.png",
+    "128": "icons/hi128.png"
   }
 }
