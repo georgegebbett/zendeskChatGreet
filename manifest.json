@@ -4,7 +4,8 @@
   "description": "Greet your chat customers!",
   "permissions": [
     "http://*.zendesk.com/chat/*",
-    "https://*.zendesk.com/chat/*"
+    "https://*.zendesk.com/chat/*",
+    "storage"
   ],
   "background": {
     "scripts": ["background.js"],
@@ -27,5 +28,9 @@
     "description": "Greet customer"
     }
   },
-	"manifest_version": 2
+  "manifest_version": 2,
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
 }

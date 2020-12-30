@@ -1,16 +1,22 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// Copyright 2020 George Gebbett. All rights reserved.
+
 
 
 var promptName;
-var greeting = "Hi there";
+var greeting;
+
+function setGreeting(){
+	chrome.storage.sync.get({greeting}, function(items){
+		greeting = items.greeting;
+	});
+}
 
 
 chrome.commands.onCommand.addListener(function(command) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {message:"whatIsName"}, function(response){
     	console.log(response.name)
+		setGreeting()
     	promptName = response.name
     	if (/^Visitor \d+/.test(promptName)) {
     		promptName = "";
@@ -25,3 +31,4 @@ chrome.commands.onCommand.addListener(function(command) {
     })
   });
 });
+
