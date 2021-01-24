@@ -15,13 +15,13 @@ function setGreeting(){
 chrome.commands.onCommand.addListener(function(command) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {message:"whatIsName"}, function(response){
-    	console.log(response.name)
-		setGreeting()
-    	promptName = response.name
+    	console.log(response.name);
+		setGreeting();
+    	promptName = response.name;
     	if (/^Visitor \d+/.test(promptName)) {
     		promptName = "";
     	} else if (/^.+\((\w+).*\)/.test(promptName)) {
-    		console.log(/^.+\((\w+).*\)/.exec(promptName))
+    		console.log(/^.+\((\w+).*\)/.exec(promptName));
     		promptName = /^.+\((\w+).*\)/.exec(promptName)[1];
     	} else if (/^\w+\s\w+$/.test(promptName)) {
     		promptName = /^(\w+)[\w ]+$/.exec(promptName)[1];
