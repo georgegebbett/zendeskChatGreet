@@ -2,6 +2,7 @@ console.log("Chat Window script started");
 
 chrome.runtime.onMessage.addListener(
 	function() {
+	    console.log("aaaa");
         promptName = document.getElementsByClassName("name___3xOoo")[0].innerText;
         if (/^Visitor \d+/.test(promptName)) {
             promptName = "";
