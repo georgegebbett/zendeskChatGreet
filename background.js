@@ -12,23 +12,9 @@ function setGreeting(){
 }
 
 
-chrome.commands.onCommand.addListener(function(command) {
+chrome.commands.onCommand.addListener(function() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {message:"whatIsName"}, function(response){
-    	console.log(response.name);
-		setGreeting();
-    	promptName = response.name;
-    	if (/^Visitor \d+/.test(promptName)) {
-    		promptName = "";
-    	} else if (/^.+\((\w+).*\)/.test(promptName)) {
-    		console.log(/^.+\((\w+).*\)/.exec(promptName));
-    		promptName = /^.+\((\w+).*\)/.exec(promptName)[1];
-    	} else if (/^\w+\s\w+$/.test(promptName)) {
-    		promptName = /^(\w+)[\w ]+$/.exec(promptName)[1];
-    	}
-		var fullGreet = greeting.replace("[name]", promptName.substring(0, 1).toUpperCase().concat( promptName.substring(1)));
-		chrome.tabs.executeScript(tabs[0].id, {code:"document.getElementsByClassName(\"meshim_dashboard_components_chatPanel_ChatTextAreaList chat_input valid\")[0].value = \"".concat(fullGreet).concat("\"")})
-    })
+    chrome.tabs.sendMessage(tabs[0].id, {message:"whatIsName"});
   });
 });
 
